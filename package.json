@@ -1,5 +1,28 @@
 {
+  "name": "databases-starter-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "queryRunner": "nodemon query-runner"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.5"
+  },
   "dependencies": {
-    "startbootstrap-sb-admin-2": "^3.3.7"
+    "body-parser": "^1.19.0",
+    "chalk": "^4.1.0",
+    "db": "^3.4.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.8",
+    "express": "^4.17.1",
+    "loading-cli": "^1.1.0",
+    "mongo": "^0.1.0",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.10"
   }
 }
