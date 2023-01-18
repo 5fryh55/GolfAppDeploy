@@ -19,7 +19,7 @@ exports.delete = async (req, res)=>{
         res.redirect("/golfers");
     } catch(e) {
         res.status(404).send({
-            message: `could not delete  record ${id}.`,
+            message: `could not delete record ${id}.`,
         });
     }
 };
@@ -28,7 +28,7 @@ exports.create = async (req, res)=>{
     try{
         const golfer = new Golfer({name: req.body.name});
         await golfer.save();
-        res.redirect('/golfers/?message=golfer has been created')
+        res.redirect('/golfers')
     } catch(e) {
         if(e.errors){
             console.log('errors:');
@@ -41,6 +41,7 @@ exports.create = async (req, res)=>{
         });
     }
 };
+
 
 exports.update = async(req, res) =>{
     const id = req.params.id;

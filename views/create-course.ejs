@@ -8,7 +8,7 @@
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
       <meta name="description" content="" />
-      <title>Add Golfer</title>
+      <title>Add Course</title>
 
       <link
         rel="canonical"
@@ -31,20 +31,15 @@
       
       
       <div class="container">
-        <h1 class="text-center">Add a new Golfer 🏌️‍♂️🏌️‍♀️ </h1>
+        <h1 class="text-center">Add a new course ⛳ </h1>
         <div class="row justify-content-md-center">
           <div class="col-">
-            <form method="POST" action="/create-golfer">
+            <form method="POST" action="/create-course">
               <div class="form-group">
-                <label for="name">Golfer Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  name="name"
-                  placeholder="Enter Name"
-                  required
-                />
+                <label for="name">Course Name</label>
+                <input type="text"class="form-control" id="name" name="name" placeholder="Enter course name"required/> 
+                <label for="name">Course Par</label>
+                <input type="number" class="form-control" id="par" name="par" placeholder="Enter course par" required/>                
               </div>       
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>

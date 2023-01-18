@@ -37,48 +37,79 @@
 
 <% } %>
 
-<h1 class="text-justify"> 🏌️Scorecards ⛳⛳   </h1>
+<h1 class="text-justify"> 💯 Scorecards 💯    </h1>
 <div class="col-md-12 col-md-offset-2  justify-content-center">
   <a role="button" class="btn btn-primary btn-xs" href="/create-scorecard">Create new scorecard</a> 
 
 </div>
-  
-  <div class="col-md-12 col-md-offset-2">
-  
-    <table class="table table-striped custab">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Course</th>
-            <th>Date</th>
-            <th>Score</th>
-        </tr>
-
-        <%  
-        
-          scorecards.forEach(scorecard => {
-            
-        %>
-
-            <tr>
-                <td><%=  scorecard.name  %></td>
-                <td><%=  scorecard.course  %></td>
-                <td><%=  scorecard.date  %></td>
-                <td><%=  scorecard.score  %></td>
-                
-                
-                <td class="text-center"><a class='btn btn-info btn-xs' href="/scorecards/update/<%= scorecard.id %>" ><span class="glyphicon glyphicon-edit"></span> Edit</a> 
-                  <a  href="/scorecards/delete/<%= scorecard.id %>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                 
-            </tr>
-            
-         <%  
-          });
-         %>
-    </thead> 
-    </table>   
-    </div>
-    
+<div class="col-md-12 col-md-offset-2">  
+  <table class="table table-striped custab">
+  <thead>
+      <tr>
+        <th>ID</th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Course</th>
+          <th>Par</th>
+          <th>Score</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+          <th>10</th>
+          <th>11</th>
+          <th>12</th>
+          <th>13</th>
+          <th>14</th>
+          <th>15</th>
+          <th>16</th>
+          <th>17</th>
+          <th>18</th>
+      </tr>
+      <%  
+          scorecards.forEach(scorecard => {            
+      %>
+          <tr>
+            <td><%=  scorecard.id  %></td>
+              <td><%=  scorecard.name  %></td>
+              <td><%=  scorecard.date  %></td>
+              <td><%=  scorecard.course  %></td>
+              <td><%=  scorecard.course_par  %></td>
+              <td><%=  scorecard.score  %></td>
+              <td><%=  scorecard.hole_1  %></td>  
+              <td><%=  scorecard.hole_2  %></td>
+              <td><%=  scorecard.hole_3  %></td>
+              <td><%=  scorecard.hole_4  %></td>
+              <td><%=  scorecard.hole_5  %></td>
+              <td><%=  scorecard.hole_6  %></td>
+              <td><%=  scorecard.hole_7  %></td>
+              <td><%=  scorecard.hole_8  %></td>
+              <td><%=  scorecard.hole_9  %></td>
+              <td><%=  scorecard.hole_10  %></td>
+              <td><%=  scorecard.hole_11 %></td>
+              <td><%=  scorecard.hole_12  %></td>
+              <td><%=  scorecard.hole_13 %></td>
+              <td><%=  scorecard.hole_14  %></td>
+              <td><%=  scorecard.hole_15  %></td>
+              <td><%=  scorecard.hole_16  %></td>
+              <td><%=  scorecard.hole_17  %></td>
+              <td><%=  scorecard.hole_18  %></td>
+              <td class="text-center"><a class='btn btn-info btn-xs' href="/scorecards/update/<%= scorecard.id %>" ><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                <a class='btn btn-info btn-xs' href="/scorecards/view/<%= scorecard.id %>" ><span class="glyphicon glyphicon-edit"></span> View</a>
+                  <a  href="/scorecards/delete/<%= scorecard.id %>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>
+                  </td>
+          </tr>            
+       <%  
+        });
+       %>
+  </thead> 
+  </table>   
+  </div>
   
     <%- include('common/footer') -%>
   </body>

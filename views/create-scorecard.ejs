@@ -8,7 +8,7 @@
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
       <meta name="description" content="" />
-      <title>World Wines</title>
+      <title>Add Scorecard</title>
 
       <link
         rel="canonical"
@@ -26,26 +26,35 @@
       <link href="css/album.css" rel="stylesheet" />
     </head>
     <body>
-      <%- include('common/header'); -%>
-      
-      
-      
+      <%- include('common/header'); -%>      
       <div class="container">
         <h1 class="text-center">Add a new Scorecard ⛳⛳ </h1>
         <div class="row justify-content-md-center">
           <div class="col-">
-            <form method="POST" action="/create-golfer">
+            <form method="POST" action="/create-scorecard">
               <div class="form-group">
                 <label for="name">Golfer Name</label>
-                <select
-                  class="form-control"
-                  id="name"
-                  name="name"
-                  />
-
-                <% if (errors['name']) { %>
-                <p style="color: red"><%= errors['name'].message %></p>
-                <% } %>
+                <select class="form-control" id="name" name="name" placeholder="Choose Golfer" required>
+                  <% golfers.forEach(golfer => { %>
+                    <option value = "<% golfer._id %>"><%=golfer.name %></option>
+                  <% })  %>
+                </select>
+                <label for="name">Course</label>
+                <select class="form-control" id="course" name="course_id" placeholder="Choose Course" required>
+                  <% courses.forEach(course => { %>
+                    <option value = "<% course._id %>"><%=course.name %></option>
+                  <% })  %>
+                </select>  
+                <label for="name">Course Par</label>
+                <input type="number" class="form-control" id="course_par" name="course_par" placeholder="Enter Course Par" value = ""/>
+                <label for="name">Date</label>
+                <input type="Date" class="form-control" id="date" name="date" placeholder="Enter Date" required/>
+                <% for(var i = 1; i<19; i++) { %>
+                  <label for="hole">Hole <%= i %></label>
+                  <input type="number" class="form-control" id="hole_<%=i%>" name="hole_<%=i%>" placeholder="Enter score"required min="1" max="15"/>
+                <% } %>  
+                <label for="score">Score </label>
+                <input type="number" class="form-control" id="score" name="score" placeholder="Enter score"required min="1" max="150"/>              
               </div>       
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
