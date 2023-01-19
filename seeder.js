@@ -20,6 +20,7 @@ async function main() {
       await db.collection("scorecards").drop();
       await db.collection("golfers").drop();
       await db.collection("courses").drop();
+      await db.collection("users").drop();
       }
     
     const load = loading("loading...").start();
@@ -27,7 +28,7 @@ async function main() {
 
     const data = await fs.readFile(path.join(__dirname, "golf.json"), "utf8");
     await db.collection("scorecards").insertMany(JSON.parse(data));
-    
+    db.createCollection("users");
     
     /*
     Group Golfers

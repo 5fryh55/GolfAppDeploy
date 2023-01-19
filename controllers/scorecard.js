@@ -4,11 +4,18 @@ const Golfer = require("../models/Golfer");
 const Scorecard = require("../models/Scorecard");
 
 exports.list = async(req, res) => {
-    try{
-        console.log(req.query)
-        const message = req.query.message;
-        const scorecards = await Scorecard.find({});
-        res.render("scorecards", {scorecards: scorecards, message: message});
+    const perPage = 8;
+    const limit = parseInt(req.query.limit) || 8;
+    const page = parseInt(req.query.page)||1;
+    try{      
+        
+        const scorecards = await Scorecard.find({}).sort({date:-1}).skip((perPage * page) - perPage).limit(limit);
+        const count = await Scorecard.find({}).count();
+        const numberOfPages = Math.ceil(count/perPage);
+
+        res.render("scorecards", {scorecards: scorecards,
+            numberOfPages: numberOfPages,
+            currentPage: page});
     } catch(e){
         res.status(404).send({message: "Could not list scorecards"});
     }

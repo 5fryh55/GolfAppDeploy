@@ -5,10 +5,19 @@
       <div class="navbar-nav">
         <a class="nav-link active" href="/">
           Home <span class="sr-only">(current)</span>
-        </a>        
+        </a>
+        <% if (user) { %>        
         <a class="nav-link" href="golfers"> Golfers</a>
         <a class="nav-link" href="scorecards"> Scorecards</a>
         <a class="nav-link" href="courses"> Courses</a>
+        <a class="nav-link" href="logout"> Log Out</a>
+        <a class="nav-link" href="#"> <%= user.email %></a> 
+        <% } %>
+        <% if (!user) { %>
+        <a class="nav-link" href="create-user"> Sign Up</a>
+        <a class="nav-link" href="Login"> Sign In</a>
+         <% } %>
+             
       </div>
     </div>
   </nav>
