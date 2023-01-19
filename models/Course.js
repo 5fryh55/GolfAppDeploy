@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const courseSchema = new Schema(
     {
-        name: String, 
+        course: String, 
         course_par: Number,
         scorecards: {type: Number, default: 0},        
     }, 

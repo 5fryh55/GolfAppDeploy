@@ -99,10 +99,8 @@
               <td><%=  scorecard.hole_16  %></td>
               <td><%=  scorecard.hole_17  %></td>
               <td><%=  scorecard.hole_18  %></td>
-              <td class="text-center"><a class='btn btn-info btn-xs' href="/scorecards/update/<%= scorecard.id %>" ><span class="glyphicon glyphicon-edit"></span> Edit</a>
-                <a class='btn btn-info btn-xs' href="/scorecards/view/<%= scorecard.id %>" ><span class="glyphicon glyphicon-edit"></span> View</a>
-                  <a  href="/scorecards/delete/<%= scorecard.id %>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>
-                  </td>
+              <td class="text-center"><a  href="/scorecards/delete/<%= scorecard.id %>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>
+              </td>
           </tr>            
        <%  
         });

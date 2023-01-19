@@ -25,10 +25,10 @@ exports.delete = async (req, res)=>{
 };
 
 exports.create = async (req, res)=>{
-    try{
-        const golfer = new Golfer({name: req.body.name});
+    let golfer = new Golfer({name: req.body.name});
+    try{        
         await golfer.save();
-        res.redirect('/golfers')
+        res.redirect('/golfers/?message=Golfer created.')
     } catch(e) {
         if(e.errors){
             console.log('errors:');
@@ -42,12 +42,23 @@ exports.create = async (req, res)=>{
     }
 };
 
+exports.edit = async (req, res) => {
+    const id = req.params.id;
+    try {
+      const golfer = await Golfer.findById(id);
+      res.render('update-golfer', { golfer: golfer, id: id });
+    } catch (e) {
+      res.status(404).send({
+        message: `could find golfer ${id}.`,
+      });
+    }
+  };
 
 exports.update = async(req, res) =>{
     const id = req.params.id;
     try{
-        const golfer = await Golfer.updateOne({_id: id}, req.body);
-        res.redirect('golfers/?message=golfer has been updated');
+        let golfer = await Golfer.updateOne({_id: id}, req.body);
+        res.redirect('/golfers/?message=golfer has been updated');
     }catch(e){
         res.status(404).send({
             message: `could not find golfer ${id}`,

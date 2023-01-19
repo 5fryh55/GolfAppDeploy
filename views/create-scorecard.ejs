@@ -34,20 +34,10 @@
             <form method="POST" action="/create-scorecard">
               <div class="form-group">
                 <label for="name">Golfer Name</label>
-                <select class="form-control" id="name" name="name" placeholder="Choose Golfer" required>
-                  <% golfers.forEach(golfer => { %>
-                    <option value = "<% golfer._id %>"><%=golfer.name %></option>
-                  <% })  %>
-                </select>
-                <label for="name">Course</label>
-                <select class="form-control" id="course" name="course_id" placeholder="Choose Course" required>
-                  <% courses.forEach(course => { %>
-                    <option value = "<% course._id %>"><%=course.name %></option>
-                  <% })  %>
-                </select>  
-                <label for="name">Course Par</label>
-                <input type="number" class="form-control" id="course_par" name="course_par" placeholder="Enter Course Par" value = ""/>
-                <label for="name">Date</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Golfer name" required>
+                <label for="course">Course</label>
+                <input type="text" class="form-control" id="course" name="course" placeholder="Choose Course" required>                  
+                <label for="date">Date</label>
                 <input type="Date" class="form-control" id="date" name="date" placeholder="Enter Date" required/>
                 <% for(var i = 1; i<19; i++) { %>
                   <label for="hole">Hole <%= i %></label>

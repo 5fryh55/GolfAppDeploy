@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const chalk = require("chalk");
-const bodyParser = require("body-parser");
+var bodyParser = require('body-parser');
 
 
 const golferController = require("./controllers/golfer");
@@ -36,9 +36,13 @@ app.get("/", (req, res) => {
 
 app.get("/golfers", golferController.list);
 app.get("/golfers/delete/:id", golferController.delete);
+app.get("/golfers/update/:id",golferController.edit);
+app.post("/golfers/update/:id",golferController.update);
 
 app.get("/courses", courseController.list);
 app.get("/courses/delete/:id", courseController.delete);
+app.get("/courses/update/:id",courseController.edit);
+app.post("/courses/update/:id",courseController.update);
 
 app.get("/scorecards", scorecardController.list);
 app.get("/scorecards/delete/:id", scorecardController.delete);

@@ -59,7 +59,7 @@ async function main() {
     
     const coursesRef = await db.collection("scorecards").aggregate([
       { $group: { _id: "$course", total_scorecards: {$sum: 1}}},
-      { $project: { name: "$_id", "_id" : 0, scorecards : "$total_scorecards"}}
+      { $project: { course: "$_id", "_id" : 0, scorecards : "$total_scorecards"}}
       ]);
     const courses = await coursesRef.toArray();
     await db.collection("courses").insertMany(courses);

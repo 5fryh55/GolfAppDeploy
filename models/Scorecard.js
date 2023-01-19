@@ -4,8 +4,7 @@ const { Schema } = mongoose;
 const scorecardSchema = new Schema(
     {
         name:{ type: String, required: [true, "Name is required"]},
-        course:{ type: String, required: [true, "Course is required"]},
-        course_par: { type: Number, required: [true, "Par is required"]}, 
+        course:{ type: String, required: [true, "Course is required"]}, 
         date:{ type: Date, required: [true, "Date is required"]},      
         hole_1: { type: Number, required: [true, "Score is required"]},
         hole_2: { type: Number, required: [true, "Score is required"]},

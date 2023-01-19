@@ -25,8 +25,8 @@ exports.delete = async (req, res)=>{
 };
 
 exports.create = async (req, res)=>{
+    let course = new Course({course: req.body.course, course_par: req.body.par});
     try{
-        const course = new Course({course: req.body.name, course_par: req.body.par});
         await course.save();
         res.redirect('courses/?message=course has been created')
     } catch(e) {
@@ -50,11 +50,23 @@ exports.createView = async(req, res) => {
     }
 };
 
+exports.edit = async (req, res) => {
+    const id = req.params.id;
+    try {
+      const course = await Course.findById(id);
+      res.render('update-course', { course: course, id: id });
+    } catch (e) {
+      res.status(404).send({
+        message: `could find course ${id}.`,
+      });
+    }
+  };
+
 exports.update = async(req, res) =>{
     const id = req.params.id;
     try{
-        const course = await Course.updateOne({_id: id}, req.body);
-        res.redirect('courses/?message=course has been updated');
+        let course = await Course.updateOne({_id: id}, req.body);
+        res.redirect('/courses/?message=course has been updated');
     }catch(e){
         res.status(404).send({
             message: `could not find course ${id}`,
