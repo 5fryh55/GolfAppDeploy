@@ -33,19 +33,33 @@
           <div class="col-">
             <form method="POST" action="/create-scorecard">
               <div class="form-group">
-                <label for="name">Golfer Name</label>
-                <select  class="form-control" id="name" name="name" placeholder="Golfer name" required>
-                  <% golfers.forEach(golfer => { %>
-                    <option value = "<%= golfer._id %>"><%= golfer.name %></option>
-                  <%= }) %> 
-                <label for="course">Course</label>
-                <input type="text" class="form-control" id="course" name="course" placeholder="Choose Course" required>                  
+                <label for="name">Golfer Name</label>                
+                <select
+                  class="form-control"
+                  name="name"
+                  id="name">
+                  <% golfers.forEach( golfer => { %>
+                  <option value="<%= golfer._id %>"><%= golfer.name %></option>
+                  <% }) %>
+                </select>
+
+                <label for="course">Course</label>                
+                <select
+                class="form-control"
+                name="course"
+                id="course">
+                <% courses.forEach( course => { %>
+                <option value="<%= course._id %>"><%= course.course %></option>
+                <% }) %>
+              </select>
                 <label for="date">Date</label>
                 <input type="Date" class="form-control" id="date" name="date" placeholder="Enter Date" required/>
+
                 <% for(var i = 1; i<19; i++) { %>
                   <label for="hole">Hole <%= i %></label>
                   <input type="number" class="form-control" id="hole_<%=i%>" name="hole_<%=i%>" placeholder="Enter score"required min="1" max="15"/>
                 <% } %>  
+
                 <label for="score">Score </label>
                 <input type="number" class="form-control" id="score" name="score" placeholder="Enter score"required min="1" max="150"/>              
               </div>       

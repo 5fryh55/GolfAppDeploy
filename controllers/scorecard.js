@@ -40,6 +40,7 @@ exports.delete = async (req, res)=>{
 };
 
 exports.create = async (req, res)=>{
+    const golfers = await Golfer.find({});
     let scorecard = new Scorecard({name: req.body.name,
         course: req.body.course,
         date: req.body.date,
