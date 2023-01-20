@@ -9,13 +9,9 @@ exports.list = async(req, res) => {
     const page = parseInt(req.query.page)||1;
     try{      
         
-        const scorecards = await Scorecard.find({}).sort({date:-1}).skip((perPage * page) - perPage).limit(limit);
-        const count = await Scorecard.find({}).count();
-        const numberOfPages = Math.ceil(count/perPage);
+        const scorecards = await Scorecard.find({}).sort({date:-1})
 
-        res.render("scorecards", {scorecards: scorecards,
-            numberOfPages: numberOfPages,
-            currentPage: page});
+        res.render("scorecards", {scorecards: scorecards});
     } catch(e){
         res.status(404).send({message: "Could not list scorecards"});
     }
