@@ -64,7 +64,7 @@ exports.create = async (req, res)=>{
         score: req.body.score,})
     try{        
         await scorecard.save();
-        res.redirect('/scorecards/?message=scorecard created.')
+        res.redirect('/scorecards')
     } catch (e){
         if(e.errors){
             res.render('create-scorecard',{errors:e.errors})
@@ -114,7 +114,7 @@ exports.update = async(req, res) =>{
     let id = req.params.id;
     try{
         let scorecard = await Scorecard.updateOne({_id: id}, req.body);
-        res.redirect('/scorecards/?message=scorecard has been updated');
+        res.redirect('/scorecards');
     }catch(e){
         res.status(404).send({
             message: `could not find scorecard ${id}`,

@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const golferSchema = new Schema(
     {
         name: { type: String, required: [true, "Name is required"], minlength: [2, "Name must be at least 2 characters."]}, 
-        scorecards: {type: Number, default: 0},        
+        scorecards: {type: Number},        
     }, 
     {timestamps: true}
 );

@@ -28,7 +28,7 @@ exports.create = async (req, res)=>{
     let golfer = new Golfer({name: req.body.name});
     try{        
         await golfer.save();
-        res.redirect('/golfers/?message=Golfer created.')
+        res.redirect('/golfers')
     } catch(e) {
         if(e.errors){
             console.log('errors:');

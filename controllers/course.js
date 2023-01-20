@@ -28,7 +28,7 @@ exports.create = async (req, res)=>{
     let course = new Course({course: req.body.course, course_par: req.body.par});
     try{
         await course.save();
-        res.redirect('courses/?message=course has been created')
+        res.redirect('courses')
     } catch(e) {
         if(e.errors){
             console.log('errors:');
