@@ -34,7 +34,10 @@
             <form method="POST" action="/create-scorecard">
               <div class="form-group">
                 <label for="name">Golfer Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Golfer name" required>
+                <select  class="form-control" id="name" name="name" placeholder="Golfer name" required>
+                  <% golfers.forEach(golfer => { %>
+                    <option value = "<%= golfer._id %>"><%= golfer.name %></option>
+                  <%= }) %> 
                 <label for="course">Course</label>
                 <input type="text" class="form-control" id="course" name="course" placeholder="Choose Course" required>                  
                 <label for="date">Date</label>
