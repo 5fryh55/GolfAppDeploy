@@ -1,1 +1,3 @@
-Golf tracker web application for COM519
+Golf scorecard database for golfing with friends. 
+
+
