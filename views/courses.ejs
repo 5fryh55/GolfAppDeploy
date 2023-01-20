@@ -52,7 +52,7 @@
                 <tr>
                   <th>ID</th>
                     <th>Course</th>
-                    <th>Scorecards</th>
+                    
                 </tr>
                 <%          
                 courses.forEach(course => {            
@@ -60,7 +60,7 @@
                     <tr>
                       <td><%=  course.id  %></td>
                         <td><%=  course.course  %></td>
-                        <td><%=  course.scorecards  %></td>   
+                          
                         <td class="text-center"><a class='btn btn-info btn-xs' href="/courses/update/<%= course.id %>" ><span class="glyphicon glyphicon-edit"></span> Edit</a> 
                           <a  href="/courses/delete/<%= course.id %>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>             
                     </tr>            

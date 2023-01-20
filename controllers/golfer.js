@@ -68,7 +68,7 @@ exports.update = async(req, res) =>{
     const id = req.params.id;
     try{
         let golfer = await Golfer.updateOne({_id: id}, req.body);
-        res.redirect('/golfers/?message=golfer has been updated');
+        res.redirect('/golfers');
     }catch(e){
         res.status(404).send({
             message: `could not find golfer ${id}`,

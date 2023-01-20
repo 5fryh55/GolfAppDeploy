@@ -66,7 +66,7 @@ exports.update = async(req, res) =>{
     const id = req.params.id;
     try{
         let course = await Course.updateOne({_id: id}, req.body);
-        res.redirect('/courses/?message=course has been updated');
+        res.redirect('/courses');
     }catch(e){
         res.status(404).send({
             message: `could not find course ${id}`,
