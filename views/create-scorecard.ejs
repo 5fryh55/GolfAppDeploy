@@ -39,7 +39,7 @@
                   name="name"
                   id="name">
                   <% golfers.forEach( golfer => { %>
-                  <option value="<%= golfer._id %>"><%= golfer.name %></option>
+                  <option value="<%= golfer._id %>"><%= golfer._id %></option>
                   <% }) %>
                 </select>
 
@@ -49,7 +49,7 @@
                 name="course"
                 id="course">
                 <% courses.forEach( course => { %>
-                <option value="<%= course._id %>"><%= course.course %></option>
+                <option value="<%= course._id %>"><%= course._id %></option>
                 <% }) %>
               </select>
                 <label for="date">Date</label>
