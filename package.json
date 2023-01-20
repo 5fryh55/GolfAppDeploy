@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js",
+    "start": "node app.js",
     "seedProd" : "cross-env NODE_ENV=production node seeder.js",
     "seed" : "node seeder.js"
   },
