@@ -11,6 +11,16 @@ exports.list = async(req, res) => {
         res.status(404).send({message: "Could not list golfers"});
     }
 };
+exports.listView = async(req, res) => {
+    try{
+        
+        const message = req.query.message;
+        const golfers = await Golfer.find({});
+        res.render("golfers", {golfers: golfers, message: message});
+    } catch(e){
+        res.status(404).send({message: "Could not list golfers"});
+    }
+};
 
 exports.delete = async (req, res)=>{
     const id = req.params.id;

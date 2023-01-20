@@ -48,20 +48,16 @@
     <thead>
         <tr>
           <th>ID</th>
-            <th>Name</th>
-            <th>Scorecards</th>
+          <th>Name</th>            
         </tr>
 
-        <%  
-        
-          golfers.forEach(golfer => {
-            
+        <%         
+          golfers.forEach(golfer => {      
         %>
 
             <tr>
                 <td><%=  golfer.id  %></td>
-                <td><%=  golfer.name  %></td>
-                <td><%=  golfer.scorecards  %></td>
+                <td><%=  golfer.name  %></td>               
                 
                 <td class="text-center"><a class='btn btn-info btn-xs' href="/golfers/update/<%= golfer.id %>" ><span class="glyphicon glyphicon-edit"></span> Edit</a> 
                   <a  href="/golfers/delete/<%= golfer.id %>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
